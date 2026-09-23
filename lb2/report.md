@@ -1,92 +1,92 @@
-\## Test Conditions
+## Test Conditions
 
 
 
-\- TCND-01 - успішна авторизація валідного користувача;
+- TCND-01 - успішна авторизація валідного користувача;
 
-\- TCND-02 - авторизація з неправильним Username;
+- TCND-02 - авторизація з неправильним Username;
 
-\- TCND-03- авторизація з неправильним Password;
+- TCND-03- авторизація з неправильним Password;
 
-\- TCND-04 - авторизація з порожнім Username;
+- TCND-04 - авторизація з порожнім Username;
 
-\- TCND-05 - авторизація з порожнім Password;
+- TCND-05 - авторизація з порожнім Password;
 
-\- TCND-06 - авторизація заблокованого користувача.
-
-
-
-
-
-\## Checklist
-
-
-
-\- \[] Успішна авторизація з валідними даними.
-
-\- \[] Відмова в авторизації за неправильним Username.
-
-\- \[] Відмова в авторизації з неправильним Password.
-
-\- \[] Перевірка порожнього Username.
-
-\- \[] Перевірка порожнього Password.
-
-\- \[] Відмова в авторизації заблокованого користувача.
+- TCND-06 - авторизація заблокованого користувача.
 
 
 
 
 
-\### TC-LOGIN-01 - Успішна авторизація standard\_user
+## Checklist
 
 
 
-\*\*Type:\*\* Positive
+- \[] Успішна авторизація з валідними даними.
+
+- \[] Відмова в авторизації за неправильним Username.
+
+- \[] Відмова в авторизації з неправильним Password.
+
+- \[] Перевірка порожнього Username.
+
+- \[] Перевірка порожнього Password.
+
+- \[] Відмова в авторизації заблокованого користувача.
 
 
 
-\*\*Preconditions:\*\*
 
-\- відкрита сторінка Login;
 
-\- користувач не авторизований.
+### TC-LOGIN-01 - Успішна авторизація standard_user
 
 
 
-\*\*Test Data:\*\*
-
-\- Username: standard\_user
-
-\- Password: secret\_sauce
+*Type:* Positive
 
 
 
-\*\*Steps:\*\*
+*Preconditions:*
 
-1. У поле Username ввести standard\_user
-2. У поле Password ввести secret\_sauce
+- відкрита сторінка Login;
+
+- користувач не авторизований.
+
+
+
+*Test Data:*
+
+- Username: standard_user
+
+- Password: secret_sauce
+
+
+
+*Steps:*
+
+1. У поле Username ввести standard_user
+2. У поле Password ввести secret_sauce
 3. Натиснути кнопку Login
 
 
 
-\*\*Expected Result:\*\*
+*Expected Result:*
 
 
 
-Після введення standart\_user і правильного пароля та натискання Login користувач успішно авторизується.
+Після введення standart_user і правильного пароля та натискання Login користувач успішно авторизується.
 
 
 
-\*\*Actual Result:\*\*
+*Actual Result:*
 
 
 
-Після введення standart\_user і правильного пароля та натискання Login відкрилася сторінка на Products.
+Після введення standart_user і правильного пароля та натискання Login відкрилася сторінка на Products.
 
 
 
-\*\*Result:\*\*
+*Result:*
 
 
 
@@ -96,55 +96,55 @@ Pass
 
 
 
-\### TC-LOGIN-02 - Відмова в авторизації standard\_user з неправильним паролем
+### TC-LOGIN-02 - Відмова в авторизації standard_user з неправильним паролем
 
 
 
-\*\*Type:\*\* Negative
+*Type:* Negative
 
 
 
-\*\*Preconditions:\*\*
+*Preconditions:*
 
-\- відкрита сторінка Login;
+- відкрита сторінка Login;
 
-\- користувач не авторизований.
-
-
-
-\*\*Test Data:\*\*
-
-\- Username: standard\_user
-
-\- Password: wrong\_password
+- користувач не авторизований.
 
 
 
-\*\*Steps:\*\*
+*Test Data:*
 
-1. У поле Username ввести standard\_user
-2. У поле Password ввести wrong\_password
+- Username: standard_user
+
+- Password: wrong_password
+
+
+
+*Steps:*
+
+1. У поле Username ввести standard_user
+2. У поле Password ввести wrong_password
 3. Натиснути кнопку Login
 
 
 
-\*\*Expected Result:\*\*
+*Expected Result:*
 
 
 
-Після введення standart\_user і неправильного пароля та натискання Login авторизацію буде відхилено, а користувач отримає повідомлення "Epic sadface: Username and password do not match any user in this service".
+Після введення standart_user і неправильного пароля та натискання Login авторизацію буде відхилено, а користувач отримає повідомлення "Epic sadface: Username and password do not match any user in this service".
 
 
 
-\*\*Actual Result:\*\*
+*Actual Result:*
 
 
 
-Після введення standart\_user і неправильного пароля та натискання Login авторизацію було відхилено, а користувач отримав відповідне повідомлення.
+Після введення standart_user і неправильного пароля та натискання Login авторизацію було відхилено, а користувач отримав відповідне повідомлення.
 
 
 
-\*\*Result:\*\*
+*Result:*
 
 
 
@@ -154,31 +154,31 @@ Pass
 
 
 
-\### TC-LOGIN-03 - Відмова в авторизації locked\_out\_user
+### TC-LOGIN-03 - Відмова в авторизації locked_out_user
 
 
 
-\*\*Type:\*\* Negative
+*Type:* Negative
 
 
 
-\*\*Preconditions:\*\*
+*Preconditions:*
 
-\- відкрита сторінка Login;
+- відкрита сторінка Login;
 
-\- користувач не авторизований.
-
-
-
-\*\*Test Data:\*\*
-
-\- Username:locked\_out\_user
-
-\- Password: secret\_sauce
+- користувач не авторизований.
 
 
 
-\*\*Steps:\*\*
+*Test Data:*
+
+- Username:locked\_out\_user
+
+- Password: secret\_sauce
+
+
+
+*Steps:*
 
 1. У поле Username ввести standard\_user
 2. У поле Password ввести secret\_sauce
@@ -186,23 +186,23 @@ Pass
 
 
 
-\*\*Expected Result:\*\*
+*Expected Result:*
 
 
 
-Після введення locked\_out\_user і правильного пароля та натискання Login авторизацію буде відхилено а користувач отримає повідомлення "Epic sadface: Sorry, this user has been locked out.".
+Після введення locked_out_user і правильного пароля та натискання Login авторизацію буде відхилено а користувач отримає повідомлення "Epic sadface: Sorry, this user has been locked out.".
 
 
 
-\*\*Actual Result:\*\*
+*Actual Result:*
 
 
 
-Після введення locked\_out\_user і правильного пароля та натискання Login авторизацію було відхилено, а користувач отримав відповідне повідомлення.
+Після введення locked_out_user і правильного пароля та натискання Login авторизацію було відхилено, а користувач отримав відповідне повідомлення.
 
 
 
-\*\*Result:\*\*
+*Result:*
 
 
 
