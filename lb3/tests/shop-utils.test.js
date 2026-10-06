@@ -28,4 +28,140 @@ describe('calculateDiscount', () => {
             expect(result).toBe(90);
         }
     );
+
+    test(
+        'returns 100 for price 100 and discount 0%',
+        () => {
+            // Arrange
+            const price = 100;
+            const percent = 0;
+
+            // Act
+            const result = calculateDiscount(
+                price,
+                percent
+            );
+
+            // Assert
+            expect(result).toBe(100);
+        }
+    );
+
+    test(
+        'returns 0 for price 100 and discount 100%',
+        () => {
+            // Arrange
+            const price = 100;
+            const percent = 100;
+
+            // Act
+            const result = calculateDiscount(
+                price,
+                percent
+            );
+
+            // Assert
+            expect(result).toBe(0);
+        }
+    );
+
+    test(
+        'returns Error for price -10 and discount 10%',
+        () => {
+            // Arrange
+            const price = -10;
+            const percent = 10;
+
+            // Assert
+            expect(
+                () => calculateDiscount(price, percent)
+            ).toThrow(
+                'Price must be a non-negative number'
+            );
+        }
+    );
+
+    test(
+        'returns Error for price 10 and discount -10%',
+        () => {
+            // Arrange
+            const price = 10;
+            const percent = -10;
+
+            // Assert
+            expect(
+                () => calculateDiscount(price, percent)
+            ).toThrow(
+                'Discount must be between 0 and 100'
+            );
+        }
+    );
+
+
+});
+
+describe('validateQuantity', () => {
+
+    test.for([
+        { quantity: 0, expected: false },
+        { quantity: 1, expected: true },
+        { quantity: 2, expected: true },
+        { quantity: 9, expected: true },
+        { quantity: 10, expected: true },
+        { quantity: 11, expected: false },
+        { quantity: 1.5, expected: false },
+    ])(
+        'validateQuantity($quantity) returns $expected',
+        ({ quantity, expected }) => {
+            expect(
+                validateQuantity(quantity)
+            ).toBe(expected);
+        }
+    )
+});
+
+describe('getShippingCost', () => {
+
+    test(
+        'returns 100 for total price 999',
+        () => {
+            // Arrange
+            const price = 999;
+
+            // Act
+            const result = getShippingCost(price);
+
+            // Assert
+            expect(result).toBe(100);
+        }
+    );
+
+    test(
+        'returns 0 for total price 1000',
+        () => {
+            // Arrange
+            const price = 1000;
+
+            // Act
+            const result = getShippingCost(price);
+
+            // Assert
+            expect(result).toBe(0);
+        }
+    );
+
+    test(
+        'returns Error for total price -1',
+        () => {
+            // Arrange
+            const price = -1;
+
+            // Assert
+            expect(
+                () => getShippingCost(price)
+            ).toThrow(
+                'Total must be a non-negative number'
+            );
+        }
+    );
 });
